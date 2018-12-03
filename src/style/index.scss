@@ -1,0 +1,9 @@
+@mixin num($w,$h){
+    width: $w;
+    height: $h;
+}
+
+body,html{
+    @include num(100%,100%);
+    background: lime;
+}

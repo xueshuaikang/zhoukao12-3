@@ -2,7 +2,7 @@
  * @Author: mikey.薛帅康 
  * @Date: 2018-12-03 19:31:10 
  * @Last Modified by: mikey.薛帅康
- * @Last Modified time: 2018-12-03 19:45:59
+ * @Last Modified time: 2018-12-03 20:07:46
  */
 let gulp=require("gulp");
 
@@ -65,8 +65,9 @@ gulp.task("server",()=>{
     }));
 })
 
-// gulp.task("watch",()=>{
-//     return gulp.watch()
-// })
+gulp.task("watch",()=>{
+    gulp.watch("./src/style/*.scss",gulp.series("readscss"))
+    gulp.watch("./src/script/*.js",gulp.series("minjs"))
+})
 
-gulp.task("default",gulp.series("readscss","minjs"))
+gulp.task("default",gulp.series("readscss","minjs","server","watch"))

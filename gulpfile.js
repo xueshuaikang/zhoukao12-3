@@ -23,4 +23,13 @@ gulp.task("readscss",()=>{
     .pipe(gulp.dest("./built/style"))
 })
 
-// 
+// 压缩js文件
+gulp.task("minjs",()=>{
+    return gulp.src("./src/script/index.js")
+    .pipe(babel({
+        presets: ['@babel/env']
+    }))
+    .pipe(minjs())
+    .pipe(gulp.dest("./built/script"))
+})
+
